@@ -1,0 +1,219 @@
+import math
+# program for anagram
+def anag(l, l1):
+    if (sorted(l) == sorted(l1)):  #  sorting the elements because to compare the elements for anagram have to sort and check the elements
+        print("it is anagram")
+    else:
+        print("it is not anagram")
+
+
+# -------------------------------------------------------------------------------------------------------------
+# program for prime number
+arr = []  # to store prime numbers in int
+arr1 = []  # to store the prime number in string
+
+
+def prime(start, stop):
+    for num in range(start, stop + 1):      # outer loop
+        isboolean = True                    # boolean value
+        for i in range(2, num):             # inner loop
+            if (num % i) == 0:
+                isboolean = False
+                break                       # if boolean value is false it will break the loop
+
+        if isboolean:
+            arr.append(num)                 # if it is prime than the number will be added to list(arr[])
+
+    arr1 = [str(i) for i in arr]            # list comprehension converting the arry to string
+    print("prime numbers", arr1)
+    kir(arr1)  # calling the method
+
+
+def lax(arr):
+    array_palindrome = []
+    for i in range(2, len(arr), 1):              # LOOP
+        rev = temp = number = 0                  # initialization
+        number = arr[i]                          # storing the value from list one by one
+        temp = number                            # storing the number to temp ,to compare.
+        while number > 0:                        #loop
+            last = number % 10
+            rev = rev * 10 + last
+            number = number // 10
+        if temp == rev:                         #condition
+            array_palindrome.append(temp)
+    print("palindrome numbers", array_palindrome)
+
+
+def kir(arr1):
+    arr2 = []  # empty list to store the anagram elements
+    for i in range(len(arr1)):  # outer loop
+        for j in range(i + 1, len(arr1), 1):  # innerloop
+            if sorted(arr1[i]) == sorted(arr1[j]):
+                arr2.append(arr1[i])  # adding the anagram element to list
+                arr2.append(arr1[j])  # adding the anagram element to list
+            else:
+                pass
+    print("anagram number", arr2)
+
+    lax(arr)
+
+
+# ----------------------------------------------------------------------------------------------------------------
+
+
+def question(low, high):
+    if (high - low) == 1:
+        return low
+    mid = int(high + low) // 2
+    print('Is your number less than', mid, '?. press 1 to YES or 0 to NO:')
+    a = int(input())
+    if a == 1:
+        return question(low, mid)
+    elif a == 0:
+        return question(mid, high)
+    else:
+        print("Invalid input.. ")
+        return 0
+
+
+# -------------------------------------------------------------------------------------------------------
+# merge sort
+
+
+def merge_sort(lst):
+    if len(lst) <= 1:  # if length size is 0 or 1 it will return the value
+        return lst
+
+    mid = int(len(lst) / 2)  # dividing the list and seperating
+    left = merge_sort(lst[:mid])  # adding the values to left
+    right = merge_sort(lst[mid:])  # adding the values to right
+    return merge(left, right)  # passing the values to the method
+
+
+def merge(left, right):
+    result = []  # empty list to store  elements
+    i, j = 0, 0  # initialization
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result += left[i:]
+    result += right[j:]
+    return result
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# vending machine
+
+
+def vending(notes, money):
+    rem = 0
+    total = 0                                           # initialization
+    while money > 0:                                    # condition
+        for i in range(0, len(notes), 1):               #  loop
+            if money >= notes[i]:
+                number = money // notes[i]
+                rem = money % notes[i]
+                money = rem
+                total += int(number)
+                print(notes[i], "Notes------->", number)
+        vending(notes, money)
+        print("Total number of notes is", total)
+
+
+# ------------------------------------------------------------------------------------------------------------
+# day of week
+
+
+def day(d, m, y):
+    y0 = y - (14 - m) // 12
+    x = y0 + y0 // 4 - y0 // 100 + y0 // 400
+    m0 = m + 12 * ((14 - m) // 12) - 2
+    day1 = (d + x + 31 * m0 // 12) % 7
+    if day1 == 0:
+        print("its sunday")
+    elif day1 == 1:
+        print("its monday")
+    elif day1 == 2:
+        print("its tuesday")
+    elif day1 == 3:
+        print("its wednesday")
+    elif day1 == 4:
+        print("its thursday")
+    elif day1 == 5:
+        print("its friday")
+    elif day1 == 6:
+        print("its saturday")
+    else:
+        print("invalid")
+#  --------------------------------------------------------------------------------------------------------
+def monthly_payment(principal,year,roi):
+    n=12*year
+    r=roi/(12*100)
+    numerator = principal*r
+    denominator = 1-pow((1+r),(-n))
+    payment=numerator/denominator
+    print(payment)
+
+
+
+def fahreheit(value):
+    fah=(value*9 / 5)+32
+    print(fah)
+
+
+def celsius(value):
+    cel=(value-32)*5/9
+    print(cel)
+#  ----------------------------------------------------------------------------------------------
+
+def sqrt(num):
+    temp = num
+    epsilon = 1e-15
+    while math.fabs(temp - num / temp) > epsilon * temp:
+        temp = ((num / temp + temp) / 2)
+    print("SquareRoot is:", temp)
+
+
+#  -------------------------------------------------------------------------------
+def bin_ary(num):
+    array=[]
+    while num>0:
+        temp=num%2
+        num=num//2
+        array.append(temp)
+    array.reverse()
+    print("binary number is",array)
+    for n in range(len(array),8):
+        array.append(0)
+    print(array)
+#  ----------------------------------------------------------------------------------------------------------
+def swap(num):
+    array=[]
+    result=[]
+    while num>0:
+        temp=num%2
+        num=num//2
+        array.append(temp)
+    array.reverse()
+    print("binary number",array)
+
+    up=0
+    last=len(array)
+    mid=up+last//2
+    left=array[:mid]
+    right=array[mid:]
+    print("divided array1",left)
+    print("divided array2",right)
+    total=right+left
+    print("swapped array is",total)
+
+
+
+
+
+
