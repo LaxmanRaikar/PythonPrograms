@@ -1,25 +1,24 @@
-from utilities import utility
-num =24
-array=[]
-arr=[]
+class node:
+    def __init__(self,dataval):
+        self.dataval=dataval
+        self.nextval=None
+class linkedlist:
+    def __init__(self):
+        self.headval=None
 
-for i in range(1,num):
- if(num%i==0):
-  array.append(i)
-print(array)
+    def printList(self):
+        temp = self.headval
+        while (temp):
+            print(temp.dataval)
+            temp = temp.nextval
 
+if __name__ == '__main__':
 
-for num in range(0, len(array) + 1):  # outer loop
- isboolean = True  # boolean value
- for i in range(2, num):  # inner loop
-  if (num % i) == 0:
-    isboolean = False
-    break  # if boolean value is false it will break the loop
-
-  if isboolean:
-   arr.append(num) # if it is prime than the number will be added to list(arr[])
-   break
-
-print(arr)
-
+    list=linkedlist()
+    list.headval=node(1)
+    second=node(2)
+    third=node(3)
+    list.headval.nextval=second
+    second.nextval=third
+    list.printList()
 

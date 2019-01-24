@@ -1,7 +1,7 @@
 from utilities import utility
 try:
-    start=int(input("enter from where you want to find prime number"))
-    stop=int(input("enter till where you want to find prime number"))
+    start=int(input("enter from where you want to find prime number :"))
+    stop=int(input("enter till where you want to find prime number :"))
     if start>-1 and stop<1002:
         utility.prime(start,stop)
     else:

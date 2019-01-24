@@ -23,7 +23,7 @@ def binary(list, item):
 
 
 def buble_sort(array):
-    for i in range(len(array) - 1, 0, -1):  # for outer loop
+    for i in range(len(array)-1,0,-1):  # for outer loop
         for j in range(i):  # for inner loop
             if (array[j] > array[j + 1]):
                 temp = array[j]  # swapping of elements0
