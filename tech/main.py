@@ -5,8 +5,8 @@ def binary(list, item):
     last = len(list) - 1
     found = False  # initialization
     while (first <= last and not found):
-        mid = (
-                          first + last) // 2  # dividing the list in two and searching the element if mid value is equal to item it will return true hereitself
+        mid = (first + last) // 2  # dividing the list in two and searching the element
+                                #  if mid value is equal to item it will return true hereitself
         if (item == list[mid]):
             found = True
         else:

@@ -4,7 +4,7 @@ try:
     no=int(input("enter the number to find "))
     x=sorted(list)
     if len(x)>1:
-     print(main.binary(x,no))
+     print(main.binary(x,no))   # calling the method
     else:
         print("enter more than one digits")
 except Exception as e:

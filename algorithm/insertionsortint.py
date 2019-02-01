@@ -1,8 +1,8 @@
 from tech import main
 try:
     nums=[int(x) for x in input("enter the elements ").split()]
-    if len(nums)>3:
-        main.insertion(nums)
+    if len(nums)>3:                     # condition
+        main.insertion(nums)            #calls the method
     else:
         print("enter than more than 3 numbers")
 except Exception as e:

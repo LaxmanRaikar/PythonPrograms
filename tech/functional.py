@@ -1,4 +1,4 @@
-#user input and replace the string
+
 import random
 import numpy as np
 import math
@@ -9,7 +9,7 @@ def username(name):
 
 #  --------------------------------------------------------------------------------------------------------
 
-#flip of coin
+# flip of coin
 
 
 def flipcoin(no):
@@ -17,40 +17,48 @@ def flipcoin(no):
     tails=0                         # intialization
     for x in range(no):
         x=random.random()           # taking random variable for random value to flip a coin
-        if(x<0.5):                  # if the x is less than 0.5 than its tails
+        if (x < 0.5):                  # if the x is less than 0.5 than its tails
             tails+=1
         else:                       # if x is more than 0.5 than its heads
-            heads+=1
-    totalnoheads=heads
-    totalnotails=tails
+            heads+= 1
+    totalnoheads = heads
+    totalnotails = tails
     print("total no of heads",totalnoheads)
     print("total no of tails",totalnotails)
     print("percentage of heads",(totalnoheads/no)*100)
     print("percentage of tails",(totalnotails/no)*100)
 
 #  ------------------------------------------------------------------------------------------------------------# -
-#program to print the leap year
+# program to print the leap year
+
+
 def leap(year):
-    if(year%4==0 and year%100!=0 or year%400==0):
+    if (year%4== 0 and year%100!= 0 or year%400==0):  # condition check # leap year comes once in four year
         print("it is leap year")
     else:
         print("it is not leap year")
 #  ---------------------------------------------------------------------------------------------------------------
-#program to print power of 2
+# program to print power of 2
+
+
 def power(number):
     i=0
-    while i<=number:                    #it will iterate the loop till i<=number
+    while i<=number:                    # it will iterate the loop till i<=number
        print(i,"-",pow(2,i))
        i+=1
 #  ---------------------------------------------------------------------------------------------------------------
+
+
 def harmonic(value):
     sum=0
-    for i in range(1,value,1):          #USING LOOP TO ITERATE THE VALUES
+    for i in range(1,value,1):          # USING LOOP TO ITERATE THE VALUES
         sum=sum+1/i
     print(sum)
 # -----------------------------------------------------------------------------------------------------------
 # ---------------------------------------------------------------------------------------------------------------
 # gambler
+
+
 def gambler(stack, goal, noOfTimes):
     bets = 0
     wins = 0
@@ -75,65 +83,77 @@ def gambler(stack, goal, noOfTimes):
     print("percent of games loss =", 100.0 * loss/ noOfTimes)
 #  --------------------------------------------------------------------------------------------------------------
 # coupan number
+
+
 def count(array):
     count = 0
-    while (len(array) >0):
-        x=random.randint(1,9)
-        count+=1
-        if x in array:
-            array.remove(x)
+    while (len(array) >0):              # loop
+        x=random.randint(1,9)           # generating random numbers from 1 to 9
+        count+=1                        # incrementing the count
+        if x in array:                  # condition
+            array.remove(x)             # if x value is present in array it will remove that value
             print(array)
 
     print("total random number to have all distinct codes",count)
 #  --------------------------------------------------------------------------------------------------------------------
 #  2d array
+
+
 def array(row,column):
     arr = [[0 for i in range(row)] for j in range(column)]
     for i in range(column):
         for j in range(row):
-            arr[i][j] = int(input("entered elements:"))
+            arr[i][j] = int(input("entered elements:"))     # int element
             array = np.array(arr)
     print(array)
 # ---------------------------------------------------------------------------------------------------------
 # triplets
-def triple(array):
+
+
+def triple( array ):
     n=len(array)
-    count=0
-    for i in range(0,n-2,1):
-        for j in range(i+1,n-1,1):
-            for k in range(j+1,n,1):
-                if (array[i]+array[j]+array[k]==0):
-                    count+=1
+    count =0
+    for i in range(0,n-2,1):                # from 1st element to last third element
+        for j in range(i+1,n-1,1):          # from 2nd element to last second element
+            for k in range(j+1,n,1):        # from 3rd element to last element
+                if (array[i] +array[j] + array[k]==0):
+                    count+=1                 # increment
                 print(array[i]," ",array[j]," ",array[k]," ")
     print("number of triplets found in the above list   is",count)
     if count==0:
         print("no triplets found")
 # --------------------------------------------------------------------------------------------------------------
+
+
 def distance(x,y):
-    z=math.sqrt(x*x+y*y)
+    z=math.sqrt(x*x+y*y)    # using math number of mathematical operations can be performed
     print("euclidean distance value of",x,"and",y,"is",z)
 #  ---------------------------------------------------------------------------------------------------
 #  start and stop program
+
+
 def start_time():
-    t0=time.time()
-    t1=time.time()
+    t0=time.time()                          # taking the time1
+    t1=time.time()                          # taking the time2
     print("start time is",t0)
     print("stopped time is ",t1)
-    t2=t1-t0
+    t2=t1-t0                                # calculating the difference between two times
     print("elapsed time is ",t2)
 #  -------------------------------------------------------------------------------------------------------------
 #  quadratic function
-def quadraticFunctions(a, b, c):
+
+
+def quadraticFunctions (a, b, c):
     print("Given quadratic equation is:", a, "x^2 +", b, "x + ", c)
     d = (b * b) - (4 * a * c)
-    if (d > 0):
+    if (d > 0):                             # if d is more than 0 than 2 roots are present
         print("Roots are real and unequal")
         root1 = (-b + math.sqrt(d)) / (2 * a)
         root2 = (-b - math.sqrt(d)) / (2 * a)
         print("First Root ", root1)
         print("Second Root ", root2)
 
-    elif (d == 0):
+    elif (d == 0):                          # if d is equal to 0 than only one root is present
         print("Roots are real and equal")
         root1 = (-b + math.sqrt(d)) / (2 * a)
         print("First Root ", root1)
@@ -142,25 +162,33 @@ def quadraticFunctions(a, b, c):
         print("Root are imaginary")
 # -----------------------------------------------------------------------------------------------------------
 # windchill
+
+
 def wind(t,v):
-    w = (355.74 + 0.6215 * t + (.4275 * t - 35.75)) * pow(v, 0.16)
+    w = (355.74 + 0.6215 * t + (.4275 * t - 35.75)) * pow(v, 0.16)      # calculation
     print(w)
 #  ---------------------------------------------------------------------------------------------------------
+
+
 def fahreheit(value):
-    fah=(value*9 / 5)+32
+    fah=(value*9 / 5)+32            # calculation
     print(fah)
+
+
 def celsius(value):
-    cel=(value-32)*5/9
+    cel=(value-32)*5/9              # calculation
 
 #  ------------------------------------------------------------------------------------------------------------
+
+
 def fact(n):
-    p=2
+    p=2                 # because factorisation starts from 2
     while n>p*p:
         if n%p==0:
             print(p)
-            n=n//p
+            n=n//p      # storing the  quotient value
         else:
-            p+=1
+            p+= 1
     print(n)
 
 

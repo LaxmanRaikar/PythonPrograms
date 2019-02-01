@@ -138,7 +138,7 @@ def day(d, m, y):
     y0 = y - (14 - m) // 12
     x = y0 + y0 // 4 - y0 // 100 + y0 // 400
     m0 = m + 12 * ((14 - m) // 12) - 2
-    day1 = (d + x + 31 * m0 // 12) % 7
+    day1 = (d + x + 31 * m0 // 12) % 7          # calculation
     if day1 == 0:
         print("its sunday")
     elif day1 == 1:
@@ -161,18 +161,18 @@ def monthly_payment(principal,year,roi):
     r=roi/(12*100)
     numerator = principal*r
     denominator = 1-pow((1+r),(-n))
-    payment=numerator/denominator
+    payment=numerator/denominator       # calculation
     print(payment)
 
 
 
 def fahreheit(value):
-    fah=(value*9 / 5)+32
+    fah=(value*9 / 5)+32                # calculation
     print(fah)
 
 
 def celsius(value):
-    cel=(value-32)*5/9
+    cel=(value-32)*5/9                  # calculation
     print(cel)
 #  ----------------------------------------------------------------------------------------------
 
@@ -180,7 +180,7 @@ def sqrt(num):
     temp = num
     epsilon = 1e-15
     while math.fabs(temp - num / temp) > epsilon * temp:
-        temp = ((num / temp + temp) / 2)
+        temp = ((num / temp + temp) / 2)        # calculation
     print("SquareRoot is:", temp)
 
 
@@ -224,49 +224,53 @@ def coupan_revised(n):
     arr=[]
     count=0
     while(len(arr))<n:
-        x=random.randint(1,n)
-        count+=1
-        if x not in arr:
-            arr.append(x)
+        x=random.randint(1,n)           # generating the random numbers from 1 to 9
+        count+=1                        # increment
+        if x not in arr:                # to skip the duplicate values
+            arr.append(x)               # adding the values to arr->list
     print(sorted(arr))
     print("distinct counts",count)
 
 
 
-#  -------------------------------------------------------------------------------------------------------------------
-board  =  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+#   -------------------------------------------------------------------------------------------------------------------
+
+
+board  =  [1, 2, 3, 4, 5, 6, 7, 8, 9]                   # slots for board
 
 win_commbinations  = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-
+                        # win combinations in board
 
 def draw():
+    # this method is used to print the board
     print(board[0], board[1], board[2])
     print(board[3], board[4], board[5])
     print(board[6], board[7], board[8])
     print()
 
 def p1():
-    n = choose_number()
-    if board[n] == "X" or board[n] == "O":
+    # this method is used to give the input from user
+    n = choose_number()                             # calls the method
+    if board[n] == "X" or board[n] == "O":          # checks the slot whether the input is give before
         print("\nYou can't go there. Try again")
-        p1()
+        p1()                                        # if input is given before it again calls the method
     else:
-        board[n] = "X"
+        board[n] = "X"                              # input is given to particular slot from user
 
 def p2():
-    n = random.randint(0,8)
-    if board[n] == "X" or board[n] == "O":
+    n = random.randint(0,8)                         # random number is generated from user
+    if board[n] == "X" or board[n] == "O":          # checks the slot whether the input is give before
         print("\nYou can't go there. Try again")
-        p2()
+        p2()                                        # if input is given before it again calls the method
     else:
-         board[n] = "O"
+         board[n] = "O"                             # input is given to particular slot generated from random number
 
 def choose_number():
     while True:
-        a = input()
+        a = input()     # takes the input
         try:
             a = int(a)
-            a-= 1
+            a-= 1           # decrements the value by 1 because list starts from index number 0
             if a in range(0, 9):
                 return a
             else:
@@ -277,21 +281,22 @@ def choose_number():
             continue
 
 def check_board():
+    # this method is used to check the winning combinations
     count = 0
     for i in win_commbinations:
-        if board[i[0]] == board[i[1]] == board[i[2]] == "X":
+        if board[i[0]] == board[i[1]] == board[i[2]] == "X":    # checks the winning combination
             print("Player 1 Wins!\n")
             print("Congratulations!\n")
             return True
 
-        if board[i[0]] == board[i[1]] == board[i[2]] == "O":
+        if board[i[0]] == board[i[1]] == board[i[2]] == "O":    # checks the winning combination
             print("Player 2 Wins!\n")
             print("Congratulations!\n")
             return True
     for a in range(9):
         if board[a] == "X" or board[a] == "O":
             count += 1
-        if count == 9:
+        if count == 9:                                         # if board is full it will exit by returning the value
             print("The game ends in a Tie\n")
             return True
 
