@@ -3,10 +3,9 @@ import random
 # program for anagram
 
 
-
-
 def anag(l, l1):
-    if (sorted(l) == sorted(l1)):  # sorting the elements because to compare the elements for anagram have to sort and check the elements
+    if sorted(l) == sorted(l1):     # sorting the elements because to compare the elements
+                                    # for anagram have to sort and check the elements
         print("it is anagram")
     else:
         print("it is not anagram")
@@ -157,11 +156,11 @@ def day(d, m, y):
         print("invalid")
 #  --------------------------------------------------------------------------------------------------------
 def monthly_payment(principal,year,roi):
-    n=12*year
-    r=roi/(12*100)
+    n = 12*year
+    r = roi/(12*100)
     numerator = principal*r
     denominator = 1-pow((1+r),(-n))
-    payment=numerator/denominator       # calculation
+    payment = numerator/denominator       # calculation
     print(payment)
 
 
@@ -187,59 +186,57 @@ def sqrt(num):
 #  -------------------------------------------------------------------------------
 def bin_ary(num):
     array=[]
-    while num>0:
-        temp=num%2                              # storing remainder
-        num=num//2                              # getting quotient value
+    while num > 0:
+        temp = num % 2                              # storing remainder
+        num = num//2                              # getting quotient value
         array.append(temp)                      # adding remainder values to list
     array.reverse()                             # reversing the list
-    print("binary number is",array)
-    for n in range(len(array),8):               # padding
+    print("binary number is", array)
+    for n in range(len(array), 8):               # padding
         array.append(0)
     print(array)
 #  ----------------------------------------------------------------------------------------------------------
 def swap(num):
     array=[]
     result=[]
-    while num>0:
-        temp=num%2                              # storing the remainder
-        num=num//2                              # getting quotient value
+    while num > 0:
+        temp = num % 2                              # storing the remainder
+        num = num//2                              # getting quotient value
         array.append(temp)
     array.reverse()
     print("binary number",array)
 
-    up=0
-    last=len(array)
-    mid=up+last//2
-    left=array[:mid]                # divided list merged to left
-    right=array[mid:]               # divided list merged to right
-    print("divided array1",left)
-    print("divided array2",right)
-    total=right+left                # arraing the list
+    up = 0
+    last = len(array)
+    mid = up+last//2
+    left = array[:mid]                # divided list merged to left
+    right = array[mid:]               # divided list merged to right
+    print("divided array1", left)
+    print("divided array2", right)
+    total=right+left                # adding the list
     print("swapped array is",total)
-
 
 
 #  ------------------------------------------------------------------------------------------------------\
 def coupan_revised(n):
-    arr=[]
-    count=0
-    while(len(arr))<n:
-        x=random.randint(1,n)           # generating the random numbers from 1 to 9
-        count+=1                        # increment
+    arr = []
+    count = 0
+    while(len(arr)) < n:
+        x=random.randint(1, n)           # generating the random numbers from 1 to 9
+        count += 1                        # increment
         if x not in arr:                # to skip the duplicate values
             arr.append(x)               # adding the values to arr->list
     print(sorted(arr))
     print("distinct counts",count)
 
-
-
 #   -------------------------------------------------------------------------------------------------------------------
 
 
-board  =  [1, 2, 3, 4, 5, 6, 7, 8, 9]                   # slots for board
+board = [1, 2, 3, 4, 5, 6, 7, 8, 9]                   # slots for board
 
-win_commbinations  = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-                        # win combinations in board
+win_combinations = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
+# win combinations in board
+
 
 def draw():
     # this method is used to print the board
@@ -247,6 +244,7 @@ def draw():
     print(board[3], board[4], board[5])
     print(board[6], board[7], board[8])
     print()
+
 
 def p1():
     # this method is used to give the input from user
@@ -257,20 +255,22 @@ def p1():
     else:
         board[n] = "X"                              # input is given to particular slot from user
 
+
 def p2():
-    n = random.randint(0,8)                         # random number is generated from user
+    n = random.randint(0, 8)                         # random number is generated from user
     if board[n] == "X" or board[n] == "O":          # checks the slot whether the input is give before
         print("\nYou can't go there. Try again")
         p2()                                        # if input is given before it again calls the method
     else:
-         board[n] = "O"                             # input is given to particular slot generated from random number
+        board[n] = "O"                             # input is given to particular slot generated from random number
+
 
 def choose_number():
     while True:
         a = input()     # takes the input
         try:
             a = int(a)
-            a-= 1           # decrements the value by 1 because list starts from index number 0
+            a -= 1           # decrements the value by 1 because list starts from index number 0
             if a in range(0, 9):
                 return a
             else:
@@ -280,10 +280,11 @@ def choose_number():
             print("\nThat's not a number. Try again")
             continue
 
+
 def check_board():
     # this method is used to check the winning combinations
     count = 0
-    for i in win_commbinations:
+    for i in win_combinations:
         if board[i[0]] == board[i[1]] == board[i[2]] == "X":    # checks the winning combination
             print("Player 1 Wins!\n")
             print("Congratulations!\n")

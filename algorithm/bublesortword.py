@@ -1,8 +1,14 @@
+"""
+this program is used load the file and do sorting using buble sort
+author:Laxman Raikar
+since:8 JAN,2019
+"""
+
 from tech import main
 try:
-    file=open('number','r')                #opening the file
-    str=file.read()                         #reading the text and storing it into the object
-    split_array=str.split()                 #spliting the words to store the elements in array using sorted inbuilt function
-    main.buble_sort(split_array)            #calling the method
-except Exception as e:
-    print(e)
+    file = open('number', 'r')                # opening the file
+    str_ = file.read()                         # reading the text and storing it into the object
+    split_array = str_.split()     # splitting the words to store the elements in array using sorted inbuilt function
+    main.buble_sort(split_array)            # calling the method
+except FileNotFoundError:
+    print("FILE NOT FOUND")

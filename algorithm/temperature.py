@@ -1,16 +1,23 @@
+"""
+this program is  convert the temperature from celsius to fahrenheit or fahrenheit to celsius by using
+temperature conversion formula
+author:Laxman Raikar
+since:8 JAN,2019
+"""
+
 from utilities import utility
 try:
-    x=int(input("to convert the temperature from Celsius to Fahrenheit press 1\n"
-            "to convert the temperature from Fahrenheit to Celsius press 2:  "))
+    temperature_value=int(input("to convert the temperature from Celsius to Fahrenheit press 1\n"
+                                "to convert the temperature from Fahrenheit to Celsius press 2:  "))
 
-    if x==1:                                        # condition check
-        value=int(input("enter the temperature in celsius "))
+    if temperature_value == 1:                                        # condition check
+        value = int(input("enter the temperature in celsius "))
         utility.fahreheit(value)                    # calls the method
-    elif x==2:                                      #condition check
-        value=int(input("enter the temperature in fahrenheit "))
+    elif temperature_value == 2:                                      # condition check
+        value = int(input("enter the temperature in fahrenheit "))
         utility.celsius(value)                      # calls the method
 
     else:
         print("enter between 1 and 2")
-except Exception as e:
-    print(e)
+except ValueError:
+    print("Input only accepts decimal numbers")
