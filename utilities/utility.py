@@ -11,7 +11,6 @@ def anag(l, l1):
         print("it is not anagram")
 
 
-# -------------------------------------------------------------------------------------------------------------
 # program for prime number
 arr = []  # to store prime numbers in int
 arr1 = []  # to store the prime number in string
@@ -43,7 +42,7 @@ def lax(arr):
             last = number % 10
             rev = rev * 10 + last
             number = number // 10
-        if temp == rev:                             #condition
+        if temp == rev:                             # condition
             array_palindrome.append(temp)
     print("palindrome numbers", array_palindrome)
 
@@ -62,9 +61,6 @@ def kir(arr1):
     lax(arr)
 
 
-# ----------------------------------------------------------------------------------------------------------------
-
-
 def question(low, high):
     if (high - low) == 1:
         return low
@@ -79,8 +75,6 @@ def question(low, high):
         print("Invalid input.. ")
         return 0
 
-
-# -------------------------------------------------------------------------------------------------------
 # merge sort
 
 
@@ -109,8 +103,6 @@ def merge(left, right):
     result += right[j:]
     return result
 
-
-# ---------------------------------------------------------------------------------------------------------------------
 # vending machine
 
 
@@ -129,7 +121,6 @@ def vending(notes, money):
         print("Total number of notes is", total)
 
 
-# ------------------------------------------------------------------------------------------------------------
 # day of week
 
 
@@ -154,7 +145,8 @@ def day(d, m, y):
         print("its saturday")
     else:
         print("invalid")
-#  --------------------------------------------------------------------------------------------------------
+
+
 def monthly_payment(principal,year,roi):
     n = 12*year
     r = roi/(12*100)
@@ -162,7 +154,6 @@ def monthly_payment(principal,year,roi):
     denominator = 1-pow((1+r),(-n))
     payment = numerator/denominator       # calculation
     print(payment)
-
 
 
 def fahreheit(value):
@@ -173,7 +164,7 @@ def fahreheit(value):
 def celsius(value):
     cel=(value-32)*5/9                  # calculation
     print(cel)
-#  ----------------------------------------------------------------------------------------------
+
 
 def sqrt(num):
     temp = num
@@ -183,7 +174,6 @@ def sqrt(num):
     print("SquareRoot is:", temp)
 
 
-#  -------------------------------------------------------------------------------
 def bin_ary(num):
     array=[]
     while num > 0:
@@ -195,7 +185,8 @@ def bin_ary(num):
     for n in range(len(array), 8):               # padding
         array.append(0)
     print(array)
-#  ----------------------------------------------------------------------------------------------------------
+
+
 def swap(num):
     array=[]
     result=[]
@@ -217,7 +208,6 @@ def swap(num):
     print("swapped array is",total)
 
 
-#  ------------------------------------------------------------------------------------------------------\
 def coupan_revised(n):
     arr = []
     count = 0
@@ -228,8 +218,6 @@ def coupan_revised(n):
             arr.append(x)               # adding the values to arr->list
     print(sorted(arr))
     print("distinct counts",count)
-
-#   -------------------------------------------------------------------------------------------------------------------
 
 
 board = [1, 2, 3, 4, 5, 6, 7, 8, 9]                   # slots for board

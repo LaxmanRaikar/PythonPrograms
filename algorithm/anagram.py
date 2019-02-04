@@ -9,5 +9,5 @@ first_value = (input("enter the string1  :"))
 second_value = (input("enter the string2  :"))
 try:
     utility.anag(first_value,second_value)      # calling anag method
-except  Exception :
-    print("error")
+except ValueError :
+    print(ValueError)

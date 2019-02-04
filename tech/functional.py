@@ -184,7 +184,7 @@ def celsius(value):
 
 def fact(n):
     p = 2                 # because factorisation starts from 2
-    while n > p*p:
+    while n > p:
         if n % p == 0:
             print(p)
             n = n//p      # storing the  quotient value
