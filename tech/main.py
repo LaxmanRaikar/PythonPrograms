@@ -21,10 +21,6 @@ def binary(list, item):
     return found
 
 
-# ---------------------------------------------------------------------------------------------------------------
-# code for bubble sort+
-
-
 def buble_sort(array):
     for i in range(len(array)-1,0,-1):  # for outer loop
         for j in range(i):  # for inner loop
@@ -35,18 +31,18 @@ def buble_sort(array):
     print("sorted array ", array)  # printing the sorted array
 
 
-# ---------------------------------------------------------------------------------------------------------------
 # code for the insertion sort
 
 
-def insertion(nums):
-    for i in range(len(nums)-1):
-        minpos = i
-        for j in range(i, len(nums)):
-            if nums[j] < nums[minpos]:
-                minpos = j
-        temp = nums[i]
-        nums[i] = nums[minpos]
-        nums[minpos] = temp
+def insertion(nlist):
+    for i in range(1, len(nlist)):
 
-    print(nums)
+        currentvalue = nlist[i]
+        position = i
+
+        while position>0 and nlist[position-1]>currentvalue:
+            nlist[position]=nlist[position-1]
+            position = position-1
+
+            nlist[position]=currentvalue
+        print(nlist)
